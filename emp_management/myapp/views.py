@@ -1,4 +1,4 @@
-from django.shortcuts import render,  redirect,HttpResponse
+from django.shortcuts import render,  redirect,HttpResponse,get_object_or_404
 from .forms import EmpForm
 from myapp.models import Emp
 from django.views.decorators.csrf import csrf_exempt
@@ -40,4 +40,11 @@ def subscribe_view(request):
 
 def follow_view(request):
     return render(request, 'follow.html')
+
+def delete_employee(request, id):
+    employee = get_object_or_404(Emp, id=id)  # Get the employee object
+    if request.method == 'POST':
+        employee.delete()  # Delete the employee
+        return redirect('view_employees')  # Redirect to the employee view page
+    return render(request, 'confirm_delete.html', {'employee': employee})
 
