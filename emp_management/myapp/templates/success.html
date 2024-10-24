@@ -1,0 +1,9 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Success!</h2>
+    <p>The employee has been added successfully.</p>
+    <a href="{% url 'add_employee' %}" class="btn btn-primary">Add Another Employee</a>
+</div>
+{% endblock %}

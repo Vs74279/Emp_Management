@@ -1,0 +1,23 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Follow Us</h2>
+    <p>Stay connected with us through our social media channels:</p>
+    <ul>
+        <li><a href="https://www.facebook.com/yourpage" target="_blank">Facebook</a></li>
+        <li><a href="https://www.twitter.com/yourpage" target="_blank">Twitter</a></li>
+        <li><a href="https://www.instagram.com/yourpage" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/yourpage" target="_blank">LinkedIn</a></li>
+    </ul>
+    <p>Subscribe to our newsletter for updates!</p>
+    <form method="POST" action="{% url 'subscribe' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
+{% endblock %}

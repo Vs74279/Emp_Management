@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Add Employee</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="emp_id" class="form-label">Employee ID</label>
+            {{ form.emp_id }}
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            {{ form.phone }}
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            {{ form.address }}
+        </div>
+        <div class="mb-3">
+            <label for="working" class="form-label">Working</label>
+            {{ form.working }}
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            {{ form.department }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Employee</button>
+    </form>
+</div>
+{% endblock %}
