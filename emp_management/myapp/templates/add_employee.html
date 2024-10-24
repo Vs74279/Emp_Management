@@ -1,34 +1,45 @@
 {% extends 'navbar.html' %}
+{% load forms_extras %}
 
 {% block content %}
-<div class="container">
+<div class="container mt-5">
     <h2>Add Employee</h2>
     <form method="POST">
         {% csrf_token %}
+        
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            {{ form.name }}
+            {{ form.name|add_class:"form-control" }}
         </div>
+        
         <div class="mb-3">
             <label for="emp_id" class="form-label">Employee ID</label>
-            {{ form.emp_id }}
+            {{ form.emp_id|add_class:"form-control" }}
         </div>
+        
         <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            {{ form.phone }}
+            {{ form.phone|add_class:"form-control" }}
         </div>
+        
         <div class="mb-3">
             <label for="address" class="form-label">Address</label>
-            {{ form.address }}
+            {{ form.address|add_class:"form-control" }}
         </div>
+        
         <div class="mb-3">
             <label for="working" class="form-label">Working</label>
-            {{ form.working }}
+            {{ form.working|add_class:"form-check-input" }}  <!-- Checkbox -->
+            <label class="form-check-label" for="working">
+                Check if the employee is currently working
+            </label>
         </div>
+        
         <div class="mb-3">
             <label for="department" class="form-label">Department</label>
-            {{ form.department }}
+            {{ form.department|add_class:"form-control" }}
         </div>
+        
         <button type="submit" class="btn btn-primary">Add Employee</button>
     </form>
 </div>
