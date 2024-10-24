@@ -33,6 +33,7 @@
                     <td>{{ employee.working }}</td>
                     <td>{{ employee.department }}</td>
                     <td>
+                        <a href="{% url 'update_employee' employee.id %}" class="btn btn-primary">Update</a>
                         <a href="{% url 'delete_employee' employee.id %}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

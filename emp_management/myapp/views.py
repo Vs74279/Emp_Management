@@ -41,6 +41,19 @@ def subscribe_view(request):
 def follow_view(request):
     return render(request, 'follow.html')
 
+def update_employee(request, id):
+    employee = get_object_or_404(Emp, id=id)
+    
+    if request.method == 'POST':
+        form = EmpForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  # Redirect after successful update
+    else:
+        form = EmpForm(instance=employee)
+
+    return render(request, 'update_employee.html', {'form': form})
+
 def delete_employee(request, id):
     employee = get_object_or_404(Emp, id=id)  # Get the employee object
     if request.method == 'POST':
